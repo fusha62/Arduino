@@ -31,11 +31,36 @@ void loop()
 {
   // a point object holds x y and z coordinates
   Point p = ts.getPoint();
+  int fl;
+  fl = 0;
   
   if (p.z > ts.pressureThreshhold) {
      Serial.print("Raw X = "); Serial.print(p.x);
      Serial.print("\tRaw Y = "); Serial.print(p.y);
      Serial.print("\tPressure = "); Serial.println(p.z);
+     
+     if ((p.x > 500) && (p.y < 500)) {
+       Tft.drawString("Point 1 Touch OK !",0,100,1,WHITE);
+       delay(1000);
+       setup();
+     }
+     
+     if ((p.x > 500) && (p.y > 500)){
+       Tft.drawString("Point 2 Touch OK !",0,200,1,WHITE);
+       delay(1000);
+       setup();
+     }
+     
+     if ((p.x < 500) && (p.y > 500)){
+       Tft.drawString("Point 3 Touch OK !",0,200,1,WHITE);
+       delay(1000);
+       setup();
+     }
+     
+     if ((p.x < 500) && (p.y < 500)) {
+       Tft.drawString("Point 4 Touch OK !",0,100,1,WHITE);
+       delay(1000);
+       setup();
+     }
   }
-  
 }
