@@ -16,8 +16,20 @@
   #define XP 57   // can be a digital pin, this is A3 
 #endif
 
+// Modify Values
+#define TS_MINX 140
+#define TS_MAXX 900
+
+#define TS_MINY 120
+#define TS_MAXY 940
+
 // Touch Screen Init
 TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
+int bufx=0;
+int bufy=0;
+int seq=0;
+int mpx;
+int mpy;
 
 // Global Variance
 int fl=0; // Touch Status
@@ -34,6 +46,29 @@ void loop()
 {
   // a point object holds x y and z coordinates
   Point p = ts.getPoint();
+  
+  // Draw Line
+  if (p.z > ts.pressureThreshhold) {
+    mpx = map(p.x, TS_MINX, TS_MAXX, 240, 0);
+    mpy = map(p.y, TS_MINY, TS_MAXY, 320, 0);
+    
+    if (sqrt(abs((double)mpx-(double)bufx)
+            +abs((double)mpy-(double)bufy)
+        )>10){
+      seq=0;
+    }else{
+      seq=1;
+    }
+    
+    if (seq==1){
+      Tft.drawLine(bufx,bufy,mpx,mpy,RED);
+      bufx=mpx;
+      bufy=mpy;
+    }else{
+      bufx=mpx;
+      bufy=mpy;
+    }
+  }
   
   if (p.z > ts.pressureThreshhold) {
      Serial.print("Raw X = "); Serial.print(p.x);
