@@ -24,7 +24,7 @@ void loop(){
     inbuf = Serial.read();
     itoa(inbuf,binbuf,2);
   }
-  for (i=0;i<8;i++){
+  for (i=1;i<8;i++){
     if (binbuf[i]=='0'){
       digitalWrite(SPEPN,LOW);
       delayMicroseconds(DTIME);
