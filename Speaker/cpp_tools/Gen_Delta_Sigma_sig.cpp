@@ -18,7 +18,7 @@ int main(){
       if (count >= FORMAT_OFFSET){
 	*((char*)(&input_signal_short))=input_signal[0];
 	*((char*)(&input_signal_short) + 1)=input_signal[1];
-	pre_quantization_signal=((double)input_signal_short+32768)/65536 + d_delay;
+	pre_quantization_signal=((double)input_signal_short+32768.0)/65536.0 + d_delay;
 	if (pre_quantization_signal >= 0.5)
 	  quantized_signal = 1;
 	else
