@@ -4,7 +4,7 @@
 #define SPEPN 13
 #define INFS 9600
 
-// Calcurate delay time
+// Calculate delay time
 #define DTIME 1/(INFS*0.000001)
 
 // Initalization
