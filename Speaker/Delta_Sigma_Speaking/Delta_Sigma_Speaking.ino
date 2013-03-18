@@ -2,7 +2,7 @@
 
 // Initial Define
 #define SPEPN 13
-#define INFS 44100
+#define INFS 9600
 
 // Calcurate delay time
 #define DTIME 1/(INFS*0.000001)
@@ -15,7 +15,7 @@ int i;
 // Arduino setup
 void setup(){
   pinMode(SPEPN, OUTPUT);
-  Serial.begin(57600);
+  Serial.begin(9600);
 }
 
 void loop(){
