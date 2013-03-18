@@ -8,7 +8,7 @@ int main(){
   char output_byte;
   int count = 0;
   int i_count = 0;
-  int d_delay = 0;
+  double d_delay = 0;
   double pre_quantization_signal=0;
   int quantized_signal=0;
   int tmp_output[7];
