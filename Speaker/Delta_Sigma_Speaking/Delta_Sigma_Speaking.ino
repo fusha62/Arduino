@@ -15,7 +15,7 @@ int i;
 // Arduino setup
 void setup(){
   pinMode(SPEPN, OUTPUT);
-  Serial.begin(9600);
+  Serial.begin(INFS);
 }
 
 void loop(){
