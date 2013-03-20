@@ -9,6 +9,7 @@ int main(){
   int count = 0;
   int i_count = 0;
   double d_delay = 0;
+  double dd_delay = 0;
   double pre_quantization_signal=0;
   int quantized_signal=0;
   int tmp_output[7];
@@ -18,11 +19,12 @@ int main(){
       if (count >= FORMAT_OFFSET){
 	*((char*)(&input_signal_short))=input_signal[0];
 	*((char*)(&input_signal_short) + 1)=input_signal[1];
-	pre_quantization_signal=((double)input_signal_short+32768.0)/65536.0 + d_delay;
+	pre_quantization_signal=((double)input_signal_short+32768.0)/65536.0 + d_delay*2 - dd_delay;
 	if (pre_quantization_signal >= 0.5)
 	  quantized_signal = 1;
 	else
 	  quantized_signal = 0;
+	dd_delay = d_delay;
 	d_delay = pre_quantization_signal - quantized_signal;
 	tmp_output[i_count]=quantized_signal;
 	i_count = i_count + 1;
