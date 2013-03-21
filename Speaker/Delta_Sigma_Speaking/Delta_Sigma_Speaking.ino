@@ -2,7 +2,7 @@
 
 // Initial Define
 #define SPEPN 13
-#define INFS 9600
+#define INFS 115200
 
 // Calculate delay time
 #define DTIME 1/(INFS*0.000001)
