@@ -13,10 +13,10 @@ int main(){
       binbuf[1]=(input_byte & 0x40) >> 6;
       binbuf[2]=(input_byte & 0x20) >> 5;
       binbuf[3]=(input_byte & 0x10) >> 4;
-      binbuf[4]=(input_byte & 0x10) >> 3;
-      binbuf[5]=(input_byte & 0x08) >> 2;
-      binbuf[6]=(input_byte & 0x04) >> 1;
-      binbuf[7]=(input_byte & 0x02);
+      binbuf[4]=(input_byte & 0x08) >> 3;
+      binbuf[5]=(input_byte & 0x04) >> 2;
+      binbuf[6]=(input_byte & 0x02) >> 1;
+      binbuf[7]=(input_byte & 0x01);
 
     
       for (int i=1;i<8;i++){
